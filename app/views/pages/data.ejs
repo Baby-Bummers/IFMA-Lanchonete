@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <%- include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+          <form class="d-flex" action="/search?" method="GET">
+                <div class="input-group mb-3">
+                    <input type="username" class="form-control" name="name" placeholder="Pesquise por nome do item" value="<%= name %>" aria-label="Recipient's username" aria-describedby="button-addon2" >
+                    <input class="btn btn-outline-primary"  type="submit" id="button-addon2">
+                </div>
+            </form>
+        <% data.forEach(function(index){ %>
+            <% if(name.toLowerCase() == index.name.toLowerCase() || name.length == 0){ %>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="<%= index.imageUrl %>" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= index.name %></h5>
+                            <p class="card-text"><%= index.description %></p>
+                            <p class="card-text"><%= index.amount %></p>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <form id="form" method="post" action='/'>
+                                    <input type="hidden" name="warehouseId" value="<%= index.warehouseId %>">
+                                    <input type="hidden" name="name" value="<%= index.name %>">
+                                    <input type="hidden" name="description" value="<%= index.description %>">
+                                    <input type="hidden" name="imageUrl" value="<%= index.imageUrl %>">
+                                    <input type="hidden" name="amount" value="<%= index.amount %>">
+                                    <input type="submit" onclick="window.alert('Item adicionado')" class="btn btn-primary" value="Adicionar no carrinho">
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+            <% }); %>        
+    </div>
+</main>
+
+<footer>
+    <%- include ../partials/footer %>
+</footer>
+
+</body>
+</html>

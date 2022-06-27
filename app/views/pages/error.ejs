@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <%- include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        
+        
+        <h1>Error</h1>
+        <p><%= error%></p>
+        <form action="/data">
+                <input
+                    class="btn btn-outline-primary "
+                    id="button-addon2"
+                    action="action"
+                    type="submit"
+                    value="Voltar"
+                />
+        </form>
+
+        
+    </div>
+</main>
+
+<footer>
+    <%- include ../partials/footer %>
+</footer>
+
+</body>
+</html>

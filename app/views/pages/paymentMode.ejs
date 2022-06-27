@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <%- include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="data:image/jpeg;base64,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" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">PIX</h5>
+                    <p class="card-text">Pagamento com o dispositivo móvel usando o  nosso QR</p>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="produto_id" onclick="window.location.href='/<%= index.id %>/'" name="submit" class="btn btn-danger"> Prosseguir -> </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="https://media.istockphoto.com/photos/hacker-stealing-credit-card-number-picture-id495421971" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Cartão</h5>
+                    <p class="card-text">Pagamento com cartão de crédito ou débito</p>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="produto_id" onclick="window.location.href='/<%= index.id %>/'" name="submit" class="btn btn-danger"> Prosseguir -> </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="https://i.kym-cdn.com/photos/images/facebook/002/277/097/74b" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Fisico</h5>
+                    <p class="card-text">Pagamento em dinheiro fisico</p>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="produto_id" onclick="window.location.href='/<%= index.id %>/'" name="submit" class="btn btn-danger"> Prosseguir -> </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <%- include ../partials/footer %>
+</footer>
+
+</body>
+</html>

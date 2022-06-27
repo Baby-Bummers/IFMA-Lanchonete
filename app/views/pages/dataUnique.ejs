@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <%- include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+            <form id="form" method="post" action='/data/<%= data.id %>?_method=DELETE'>
+                <div class="list-group" style='margin-bottom: 5pc;'>
+                    <button type="produto_id" class="list-group-item list-group-item-action active" aria-current="true" disabled>
+                        /data/<%= data.id %>
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Primeiro nome: <%= data.firstname %></button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Segundo nome: <%= data.lastname %></button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Nickname: <%= data.nickname %></button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Endereço: <%= data.address %></button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Bio: <%= data.bio %></button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Data de criação: <%= data.dataLancamento %></button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>Última modificação: <%= data.dataUltima %></button>
+                    <button type="button" name="put" onclick="window.location.href='./<%= data.id %>/mode_edit'" class="list-group-item list-group-item-warning list-group-item-warnig"> Editar </button>
+                    <button type="produto_id" onclick="window.location.href='./<%= data.id %>/'" name="submit" class="list-group-item list-group-item-danger list-group-item-danger"> Deletar </button>
+                </div>
+                <input type="hidden" name="_method" value="DELETE">
+            </form>
+            <form class="d-flex justify-content-around bd-highlight mb-3" action="/data/<%= data.id %>/view_raw" method="GET">
+                    <input
+                        class="btn btn-outline-primary p-2 bd-highlight"
+                        id="button-addon2"
+                        action="action"
+                        onclick="window.history.go(-1); return false;"
+                        type="submit"
+                        value="Voltar"
+                    />
+                    <input class="btn btn-outline-primary p-2 bd-highlight"  type="submit" id="button-addon2" value="view raw">
+            </form>
+    </div>
+</main>
+
+<footer>
+    <%- include ../partials/footer %>
+</footer>
+
+</body>
+</html>

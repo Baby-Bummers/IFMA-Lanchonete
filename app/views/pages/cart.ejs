@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <%- include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+          <form class="d-flex" action="/cart/search?" method="GET">
+                <div class="input-group mb-3">
+                    <input type="username" class="form-control" name="itemResult" placeholder="Pesquise pelo item" value="<%= itemResult %>" aria-label="Recipient's username" aria-describedby="button-addon2" >
+                    <input class="btn btn-outline-primary"  type="submit" id="button-addon2">
+                </div>
+            </form>
+            <% data.forEach(function(index){ %>
+                <% if(itemResult.toLowerCase() == index.name.toLowerCase() || itemResult.length == 0){  %>
+                    <form id="form" method="post" action='/cart/<%= index.id %>?_method=DELETE'>
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                <img src="<%= index.imageUrl %>" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= index.name %></h5>
+                                    <p class="card-text"><%= index.description %></p>
+                                    <p class="card-text">R$<%= index.amount %></p>
+                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                        <button type="produto_id" onclick="window.location.href='/<%= index.id %>/'" name="submit" class="btn btn-danger">Remover do carrinho</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%totalAmount += index.amount%>
+                    <input type="hidden" name="_method" value="DELETE">
+                </form>
+                <%}%>
+            <% }); %>
+            <form id="form" method="get" action='/cart/payment'>
+                <div class="list-group" style='margin-bottom: 5pc;'>
+                <button type="input" name="totalAmount" value="<%= totalAmount %>" class="list-group-item active btn-success"> Realizar pagamento | Total: R$<%= totalAmount %> </button>
+            </form>
+    </div>
+</main>
+
+<footer>
+    <%- include ../partials/footer %>
+</footer>
+
+</body>
+</html>
