@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <%- include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <form id="form" action='/' method="post">     
+            <div class="mb-3">
+                <label for="exampleInputName1" class="form-label">Name</label>
+                <input type="name" name='firstname' class="first-name form-control" id="exampleInputName1" aria-describedby="nameHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputNickname1" class="form-label">Numero do cartão</label>
+                <input type="nickname"  name='username' class="nickname form-control" id="exampleInputNickname1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputAddress1" class="form-label">CVC</label>
+                <input type="address" name='address' class="address form-control" id="exampleInputAddress1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputBio1" class="form-label">Data de validade</label>
+                <input type="address" name='address' class="address form-control" id="exampleInputAddress1">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Crédito
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Débito
+                </label>
+            </div>
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+</main>
+
+<footer>
+    <%- include ../partials/footer %>
+</footer>
+
+</body>
+</html>

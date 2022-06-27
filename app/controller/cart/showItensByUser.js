@@ -93,4 +93,56 @@ router.route("/payment").get((req, res) => {
     );
 });
 
+router.route("/paymentMode/card").get((req, res) => {
+    defaultSchema.deleteMany({},
+        (error) => {
+            if (error) {
+                res.render("pages/error", {
+                    title: msg.titleError,
+                    error: error,
+                });
+                log.warn(
+                    "DELETE -> /data/" + req.params._id + " ❌ - " + error
+                );
+            }
+
+            router.route("/");
+            res.render("pages/paymentModeCard", { title: msg.paid });
+            log.info("DELETE -> /data/" + req.params._id + " ✅");
+        }
+    );
+});
+
+router.route("/paymentMode/cash").get((req, res) => {
+    defaultSchema.deleteMany({}, (error) => {
+        if (error) {
+            res.render("pages/error", {
+                title: msg.titleError,
+                error: error,
+            });
+            log.warn("DELETE -> /data/" + req.params._id + " ❌ - " + error);
+        }
+
+        router.route("/");
+        res.render("pages/actionPage", { title: msg.paid });
+        log.info("DELETE -> /data/" + req.params._id + " ✅");
+    });
+});
+
+router.route("/paymentMode/pix").get((req, res) => {
+    defaultSchema.deleteMany({}, (error) => {
+        if (error) {
+            res.render("pages/error", {
+                title: msg.titleError,
+                error: error,
+            });
+            log.warn("DELETE -> /data/" + req.params._id + " ❌ - " + error);
+        }
+
+        router.route("/");
+        res.render("pages/paymentModePix", { title: msg.paid });
+        log.info("DELETE -> /data/" + req.params._id + " ✅");
+    });
+});
+
 module.exports = router;
